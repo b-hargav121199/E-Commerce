@@ -18,6 +18,18 @@ namespace Infrastucture.Data
             {
                 query   = query.Where(spac.Criteria);
             }
+            if (spac.OrderBy != null)
+            {
+                query = query.OrderBy(spac.OrderBy);
+            }
+            if (spac.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spac.OrderByDescending);
+            }
+            if (spac.IsPagingEnabled)
+            {
+                query = query.Skip(spac.Skip).Take(spac.Take);
+            }
             query = spac.Includes.Aggregate(query, (current, include) =>current.Include(include));
             return query;
         }
