@@ -32,4 +32,7 @@ baseUrl:string="https://localhost:7034/api/";
   getTypes(){
     return this.http.get<IType[]>(this.baseUrl+"Products/ProductTypes")
   }
+  getproduct(id:number){
+    return this.http.get<IProduct>(this.baseUrl+ 'products/' + id)
+  }
 }

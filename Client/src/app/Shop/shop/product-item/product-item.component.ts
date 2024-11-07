@@ -7,10 +7,11 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
+import { RouterModule, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-product-item',
   standalone: true,
-  imports: [CardModule,ButtonModule,CommonModule,CurrencyPipe,TableModule, TagModule,MessagesModule],
+  imports: [CardModule,ButtonModule,CommonModule,CurrencyPipe,TableModule, TagModule,MessagesModule,RouterModule],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.scss'
 })

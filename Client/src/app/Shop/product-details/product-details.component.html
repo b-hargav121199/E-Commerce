@@ -1,0 +1,30 @@
+@if (product) {
+    <div class="grid">
+        <div class="col-12 md:col-6">
+            <div class="card flex justify-content-center">
+                <p-card header="{{product.name}}" [style]="{ width: '100%' }">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" src="{{product.pictureUrl}}" style="width: 30%; height: auto;" />
+                    </ng-template>
+                    <p>
+                        {{product.description}}
+                    </p>
+                </p-card>
+            </div>
+        </div>
+    
+        <div class="col-12 md:col-6">
+            <div class="card flex justify-content-center">
+                <p-card header="{{product.name}}" subheader="{{product.price | currency }}" [style]="{ width: '100%' }">
+                    <div class="flex align-items-center justify-content-between">
+                        <p-button label="+" [text]="true" class="ui-button" severity="warning"></p-button>
+                        <span style="font-weight: bold; font-size: 35px;">2</span>
+                        <p-button label="-" [text]="true" class="ui-button" severity="warning"></p-button>
+                    </div>
+                    <p-button label="Add to Cart" [rounded]="true" class="ui-button m-8" severity="warning"></p-button>
+                </p-card>
+            </div>
+        </div>
+    </div>
+    }
+    

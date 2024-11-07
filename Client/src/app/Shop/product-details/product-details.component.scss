@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+    .ui-button {
+        font-size: 14px;
+    }
+
+    .card span {
+        font-size: 28px;
+    }
+}
+
+.ui-button.mt-3 {
+    margin-top: 1.5rem; /* Adjusts top space */
+}
+
+.ui-button.p-2 {
+    padding: 0.75rem; /* Adjusts button padding */
+}
+@use "../../nav-bar/nav-bar.component.scss"

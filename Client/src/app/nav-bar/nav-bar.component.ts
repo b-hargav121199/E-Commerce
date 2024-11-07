@@ -17,15 +17,22 @@ export class NavBarComponent  implements OnInit {
    this.NavBarItem=[
     {
       label: 'Home',
-      icon: 'pi pi-home'
+      icon: 'pi pi-home',
+      routerLink:"/",
+
   },
   {
       label: 'SHOPE',
-      icon: 'pi pi-star'
+      icon: 'pi pi-star',
+      routerLink :"shop",
+
+
   },
   {
     label: 'CONTACT',
-    icon: 'pi pi-envelope'
+    icon: 'pi pi-envelope',
+
+
   }
 
    ]
