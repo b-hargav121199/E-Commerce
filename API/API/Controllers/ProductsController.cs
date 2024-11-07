@@ -30,10 +30,14 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort,int ? brandid, int ? typeid)
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort,int ? brandid, int ? typeid,string search)
         {
             var spec= new ProductWithTypesAndBrandSpecification(sort,brandid,typeid);
             var Products = await _Productrepo.ListAsync(spec);
+            if (search != null) 
+            {
+                Products = Products.Where(p => p.Name != null && p.Name.ToLower().Contains(search.ToLower())).ToList();
+            }
             return Ok(_Mapper.Map<IReadOnlyList<Product>,IReadOnlyList<ProductToReturnDto>>(Products));
         }
         [HttpGet("{id}")]

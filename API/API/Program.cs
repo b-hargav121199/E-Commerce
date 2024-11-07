@@ -24,6 +24,7 @@ public class Program
         builder.Services.AddSwaggerDocumentation();
         builder.Services.AddDbContext<StoreContext>(b => b.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
         builder.Services.AddApplicationServices();
+        builder.Services.AddCorsPolicy(builder.Configuration);
 
 
 
@@ -51,6 +52,7 @@ public class Program
         app.UseSwaggerDocumentation();
         app.UseStatusCodePagesWithReExecute("/errors/{0}");
         app.UseHttpsRedirection();
+        app.UseCors("AllowSpecificOrigins");
         app.UseRouting();
         app.UseStaticFiles();
 
