@@ -1,7 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+// Import a PrimeNG theme (replace with your chosen theme)
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+// Import PrimeNG core styles
+@import 'primeng/resources/primeng.min.css';
 
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+// Import Prime Icons for icon support
+@import 'primeicons/primeicons.css';
+
+body{
+margin: 0px;
+padding: 0px;
+}
+

@@ -1,0 +1,26 @@
+@media print {
+    /* Hide everything except the p-card elements */
+   
+
+    /* Make the p-card elements visible for printing */
+    .printable-card-container, .printable-card-container * {
+      visibility: visible;
+    }
+
+    /* Arrange cards in a three-column grid layout */
+    .printable-card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+      gap: 10px; /* Space between cards */
+    }
+
+    /* Optional: Remove box shadow and add border for a cleaner print layout */
+    .p-card-shadow {
+      box-shadow: none;
+      border: 1px solid #ddd;
+    }
+  }
+  .btnNO
+  {
+    width: 50%;
+  }

@@ -1,0 +1,14 @@
+<p-menubar [model]="NavBarItem" class="ui-nav">
+    <ng-template pTemplate="start">
+        <img src="assets/images/logo.png" height="40" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end" >
+        <div>
+            <i class="pi pi-shopping-cart" style="font-size: 2.5rem "></i>
+            <span class="cart-no">5</span>
+            <p-button label="Login" class="ui-button" [rounded]="true" />
+            <p-button label="Sign up" [rounded]="true" />
+        </div>
+        
+    </ng-template>
+</p-menubar>
