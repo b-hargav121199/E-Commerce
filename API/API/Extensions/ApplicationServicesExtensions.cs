@@ -1,6 +1,5 @@
 ﻿using Core.Interfaces;
 using Infrastucture.Data;
-using Infrastucture;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -15,7 +14,9 @@ namespace API.Extensions
         {
             Services.AddScoped<IProductRepository, ProductRepository>();
             Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            Services.AddScoped<IBasketRepository, BasketRepository>();
             Services.AddAutoMapper(typeof(MappingProfiles));
+            Services.AddMemoryCache();
             Services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>

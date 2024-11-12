@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StackExchange.Redis;
 using System;
 using System.Threading.Tasks;
 
@@ -25,7 +26,11 @@ public class Program
         builder.Services.AddDbContext<StoreContext>(b => b.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
         builder.Services.AddApplicationServices();
         builder.Services.AddCorsPolicy(builder.Configuration);
-
+        builder.Services.AddSingleton<ConnectionMultiplexer>(c => {
+            var configuration = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("Redis"), true);
+            return ConnectionMultiplexer.Connect(configuration);
+            
+        });
 
 
 
