@@ -1,0 +1,26 @@
+<h4 class="light-background-card m-4" style="text-align: center;">
+    Order Summary
+</h4>
+<div class="p-4" >
+    <p style="font-style: italic;" class="m-4">
+        Shipping costs will be added depending on choices made during checkout
+    </p>
+        <ul  *ngIf="(baskettotal$| async) as basket" class="unstyled-list">
+            <li class="p-5" style="display: flex; justify-content: space-between;border-bottom: 1px solid #6c757d;">
+              <strong style="color: #6c757d;">Order subtotal</strong>
+              <strong style="color: #6c757d;">{{basket.subtotal | currency}}</strong> 
+            </li>
+            <li class="p-5" style="display: flex; justify-content: space-between;border-bottom: 1px solid #6c757d;">
+                <strong style="color: #6c757d;">Shipping and handling</strong>
+                <strong style="color: #6c757d;">{{basket.shipping | currency}}</strong> 
+            </li>
+            <li class="p-5" style="display: flex; justify-content: space-between;border-bottom: 1px solid #6c757d;">
+                <strong style="color: #6c757d;">Total</strong>
+                <strong style="color: #6c757d;">{{basket.total | currency}}</strong> 
+            </li>
+            <li  style="display: flex; justify-content:center;">
+                <p-button label="Proceeed to checkout" routerLink="/Checkout"  severity="warning" class="large-button"></p-button>
+            </li>
+        </ul>
+
+</div>

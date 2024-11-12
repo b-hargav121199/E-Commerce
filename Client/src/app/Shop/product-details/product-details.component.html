@@ -17,11 +17,11 @@
             <div class="card flex justify-content-center">
                 <p-card header="{{product.name}}" subheader="{{product.price | currency }}" [style]="{ width: '100%' }">
                     <div class="flex align-items-center justify-content-between">
-                        <p-button label="+" [text]="true" class="ui-button" severity="warning"></p-button>
-                        <span style="font-weight: bold; font-size: 35px;">2</span>
-                        <p-button label="-" [text]="true" class="ui-button" severity="warning"></p-button>
+                        <p-button label="-" [text]="true" class="ui-button" (onClick)="decrementQuantity()" severity="warning"></p-button>
+                        <span style="font-weight: bold; font-size: 35px;">{{quantity}}</span>
+                        <p-button label="+" [text]="true" class="ui-button" (onClick)="incrementQuantity()" severity="warning"></p-button>
                     </div>
-                    <p-button label="Add to Cart" [rounded]="true" class="ui-button m-8" severity="warning"></p-button>
+                    <p-button label="Add to Cart" [rounded]="true" (onClick)="addItemToBasket()" class="ui-button m-8" severity="warning"></p-button>
                 </p-card>
             </div>
         </div>

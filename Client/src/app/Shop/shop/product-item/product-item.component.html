@@ -28,7 +28,7 @@
                 <td><img [src]="product.pictureUrl" [alt]="product.name" width="100" class="shadow-4" /></td>
                 <td>{{product.price | currency:'USD'}}</td>
                 <td>
-                    <p-button label="Cart"  icon="pi pi-shopping-cart"></p-button>
+                    <p-button label="Cart"  (onClick)="AddItemtoBasket(product)" icon="pi pi-shopping-cart"></p-button>
                     <p-button label="View" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}" routerLink="/shop/{{product.id}}"></p-button>
                 </td>
                 

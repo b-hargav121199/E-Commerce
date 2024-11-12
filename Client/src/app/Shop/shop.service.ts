@@ -4,12 +4,13 @@ import { IProduct } from '../models/product';
 import { Ibrand } from '../models/brand';
 import { IType } from '../models/prodycttype';
 import {map} from 'rxjs/operators'
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-baseUrl:string="https://localhost:7034/api/";
+baseUrl:string=environment.baseUrl;
   constructor(private http:HttpClient) { }
   getProduct(brandid?:number,typeid?:number,searchitems?:string)
   {

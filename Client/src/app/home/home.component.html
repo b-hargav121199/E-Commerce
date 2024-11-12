@@ -1,1 +1,12 @@
-<p>home works!</p>
+<p-carousel [value]="images" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="3000">
+    <ng-template pTemplate="item" let-image>
+      <img [src]="image" alt="Image" style="width: 100%; display: block;  height: 100%;">
+    </ng-template>
+  </p-carousel>
+  <section class="featured">
+<div class="flex">
+    <div class="flex-initial flex align-items-center justify-content-center">
+        <h1>Welecome to the Shop!</h1>
+    </div>
+</div>
+  </section>

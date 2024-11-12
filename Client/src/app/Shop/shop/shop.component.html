@@ -1,50 +1,55 @@
 <div class="containter pl-8">
     <div class="grid">
-        <section class="col-12 md:col-3 lg:col-3">
-            <h3 [ngStyle]="{color:'var(--yellow-400)'}">Brands</h3>
-            <div class="card flex justify-content-center">
-                <p-listbox [options]="brands" (onChange)="onListboxChangeBrandid($event)" optionLabel="name" [filter]="true"
-                    [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" />
-            </div>
-            <h3 [ngStyle]="{color:'var(--yellow-400)'}">Types</h3>
-            <div class="card flex justify-content-center">
-                <p-listbox [options]="types" (onChange)="onListboxChangeTypeid($event)"  optionLabel="name" [filter]="true"
-                    [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" />
-            </div>
-        </section>
-        <section class="col-12 md:col-9 lg:col-9">
-            <div>
-                <header class="m-6">
-                    <div class="grid">
-                        <div class="col-12 md:col-12 lg:col-12">
-                            <div class="grid">
-                                <div class="col-12 md:col-5 lg:col-5">
-                                    <p-floatLabel style="font-size: large;">
-                                        <input (keyup.enter)="onsearch()" style="width: 100%; height: 3rem; font-size: 1.2rem;" #search pInputText
-                                            id="search"  />
-                                        <label for="Search">Search</label>
-                                    </p-floatLabel>
-                                </div>
-                                <div class="col-12 md:col-7 lg:col-7">
-                                    <div class="grid">
-                                        <div class="col-12 md:col-6 lg:col-6"> 
-                                            <p-button label="Search" [rounded]="true"  (onClick)="onsearch()"/>
-                                        </div>
-                                            <div class="col-12 md:col-6 lg:col-6">
-                                                 <p-button label="Reset" [rounded]="true"  (onClick)="onreset()" severity="success" />
-                                            </div>    
+        @if(brands && types){
+            <section class="col-12 md:col-3 lg:col-3">
+                <h3 [ngStyle]="{color:'var(--yellow-400)'}">Brands</h3>
+                <div class="card flex justify-content-center">
+                    <p-listbox [options]="brands" (onChange)="onListboxChangeBrandid($event)" optionLabel="name" [filter]="true"
+                        [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" />
+                </div>
+                <h3 [ngStyle]="{color:'var(--yellow-400)'}">Types</h3>
+                <div class="card flex justify-content-center">
+                    <p-listbox [options]="types" (onChange)="onListboxChangeTypeid($event)"  optionLabel="name" [filter]="true"
+                        [style]="{ width: '15rem' }" [listStyle]="{'max-height': '220px'}" />
+                </div>
+            </section>
+        }
+@if(products){
+    <section class="col-12 md:col-9 lg:col-9">
+        <div>
+            <header class="m-6">
+                <div class="grid">
+                    <div class="col-12 md:col-12 lg:col-12">
+                        <div class="grid">
+                            <div class="col-12 md:col-5 lg:col-5">
+                                <p-floatLabel style="font-size: large;">
+                                    <input (keyup.enter)="onsearch()" style="width: 100%; height: 3rem; font-size: 1.2rem;" #search pInputText
+                                        id="search"  />
+                                    <label for="Search">Search</label>
+                                </p-floatLabel>
+                            </div>
+                            <div class="col-12 md:col-7 lg:col-7">
+                                <div class="grid">
+                                    <div class="col-12 md:col-6 lg:col-6"> 
+                                        <p-button label="Search" [rounded]="true"  (onClick)="onsearch()"/>
                                     </div>
+                                        <div class="col-12 md:col-6 lg:col-6">
+                                             <p-button label="Reset" [rounded]="true"  (onClick)="onreset()" severity="success" />
+                                        </div>    
                                 </div>
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
+            </header>
 
-            </div>
-            <div> 
-                <app-product-item [Product]="products"></app-product-item>
-                
-            </div>
-        </section>
+        </div>
+        <div> 
+            <app-product-item [Product]="products"></app-product-item>
+            
+        </div>
+    </section>
+}
+
     </div>
 </div>

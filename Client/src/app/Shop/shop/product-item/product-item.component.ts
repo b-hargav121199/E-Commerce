@@ -8,6 +8,7 @@ import { TagModule } from 'primeng/tag';
 import { MessagesModule } from 'primeng/messages';
 import { Message } from 'primeng/api';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { BasketService } from '../../../services/basket.service';
 @Component({
   selector: 'app-product-item',
   standalone: true,
@@ -20,7 +21,11 @@ export class ProductItemComponent implements OnInit{
 messages = [
   { severity: 'info', summary: 'info:', detail: 'Product is not found for selected filter' }
 ];
+constructor(private basketService:BasketService){}
 ngOnInit(){
 }
-
+AddItemtoBasket(product:IProduct)
+{
+  this.basketService.AddItemToBasket(product)
+}
 }
